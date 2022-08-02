@@ -3,20 +3,20 @@ import type { Relation } from 'typeorm'
 
 import { AuditEntity } from '@/entities/common/AuditEntity'
 
-import { User } from '@/entities/User'
+import { User } from '@/entities'
 
-export class FullAuditEntity extends AuditEntity {
-  @Column({ type: `uuid` })
+export abstract class FullAuditEntity extends AuditEntity {
+  @Column({ type: `uuid`, nullable: true })
   createdBy!: string
 
-  @ManyToOne(() => User, (user) => user.id)
+  @ManyToOne(() => User, (user) => user.id, { nullable: true })
   @JoinColumn({ name: `created_by`, referencedColumnName: `id` })
   createdByUser: Relation<User>
 
-  @Column({ type: `uuid` })
+  @Column({ type: `uuid`, nullable: true})
   updatedBy: string
 
-  @ManyToOne(() => User, (user) => user.id)
+  @ManyToOne(() => User, (user) => user.id, { nullable: true })
   @JoinColumn({ name: `updated_by`, referencedColumnName: `id` })
   updatedByUser: Relation<User>
 }

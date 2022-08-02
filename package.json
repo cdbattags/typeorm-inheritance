@@ -1,12 +1,35 @@
 {
   "name": "typeorm-inheritance",
   "version": "1.0.0",
+  "scripts": {
+    "db:start": "docker run --name postgres-db -e POSTGRES_USER=test -e POSTGRES_DB=test -e POSTGRES_PASSWORD=test --pull missing -p 5432:5432 -d postgres",
+    "db:stop": "docker rm -f postgres-db",
+    "dev": "next dev",
+    "ts-node": "ts-node -r tsconfig-paths/register -P ./tsconfig.typeorm.json",
+    "typeorm": "npm run ts-node -- ./node_modules/.bin/typeorm -d ./src/data-source.ts"
+  },
   "dependencies": {
+    "@types/react": "^18.0.15",
+    "axios": "^0.27.2",
     "class-validator": "^0.13.2",
     "dotenv": "^16.0.1",
-    "typeorm": "^0.3.7"
+    "fast-glob": "^3.2.11",
+    "next": "^12.2.3",
+    "pg": "^8.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.0.0",
+    "typeorm": "^0.3.7",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
-    "@types/node": "^18.6.3"
+    "@swc/core": "^1.2.222",
+    "@swc/helpers": "^0.4.3",
+    "@types/node": "^18.6.3",
+    "regenerator-runtime": "^0.13.9"
   }
 }

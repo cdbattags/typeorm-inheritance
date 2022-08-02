@@ -3,9 +3,9 @@ import type { Relation } from 'typeorm'
 
 import { FullAuditEntity } from '@/entities/common/FullAuditEntity'
 
-import { Team } from '@/entities/Team'
+import { Team } from '@/entities'
 
-export class WithOwnerEntity extends FullAuditEntity {
+export abstract class WithOwnerEntity extends FullAuditEntity {
   @Index()
   @Column({ type: `uuid` })
   belongsTo!: string
