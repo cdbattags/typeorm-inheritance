@@ -1,0 +1,12 @@
+{
+  "name": "typeorm-inheritance",
+  "version": "1.0.0",
+  "dependencies": {
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.1",
+    "typeorm": "^0.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3"
+  }
+}
